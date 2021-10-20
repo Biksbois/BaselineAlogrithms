@@ -1,0 +1,167 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20211020140947
+Username: DESKTOP-HO1BGDN\jeppe
+RunAs User: DESKTOP-HO1BGDN\jeppe
+Configuration Name: 
+Machine: DESKTOP-HO1BGDN (Microsoft Windows NT 10.0.22000.0)
+Host Application: C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell.exe
+Process ID: 5736
+PSVersion: 5.1.22000.65
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22000.65
+BuildVersion: 10.0.22000.65
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\jeppe\Documents\PowerShell_transcript.DESKTOP-HO1BGDN.JqcbKkAV.20211020140947.txt
+PS C:\Users\jeppe\Documents\GitHub\BaselineAlogrithms> conda install -c anaconda dill
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: C:\JupyterLab\resources\jlab_server
+
+  added / updated specs:
+    - dill
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2020.10.14 |                0         159 KB  anaconda
+    certifi-2020.6.20          |           py38_0         160 KB  anaconda
+    dill-0.3.2                 |             py_0          65 KB  anaconda
+    ------------------------------------------------------------
+                                           Total:         384 KB
+
+The following NEW packages will be INSTALLED:
+
+  dill               anaconda/noarch::dill-0.3.2-py_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates    conda-forge::ca-certificates-2021.10.~ --> anaconda::ca-c
+ertificates-2020.10.14-0
+  certifi            conda-forge::certifi-2021.10.8-py38ha~ --> anaconda::cert
+ifi-2020.6.20-py38_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+dill-0.3.2           | 65 KB     | ################################## | 100%
+ca-certificates-2020 | 159 KB    | ################################## | 100%
+certifi-2020.6.20    | 160 KB    | ################################## | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+PS C:\Users\jeppe\Documents\GitHub\BaselineAlogrithms> python run_config.py conf/in conf/out
+Traceback (most recent call last):
+  File "run_config.py", line 19, in <module>
+    from telegram.ext.updater import Updater
+ModuleNotFoundError: No module named 'telegram'
+PS C:\Users\jeppe\Documents\GitHub\BaselineAlogrithms> conda install -c conda-forge python-telegram-bot
+
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible
+solve.
+Solving environment: failed with repodata from current_repodata.json, will ret
+ry with next repodata source.
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: C:\JupyterLab\resources\jlab_server
+
+  added / updated specs:
+    - python-telegram-bot
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    apscheduler-3.6.3          |   py38haa244fe_3          81 KB  conda-forge
+    backports.zoneinfo-0.2.1   |   py38h294d835_4          50 KB  conda-forge
+    cachetools-4.2.2           |     pyhd8ed1ab_0          12 KB  conda-forge
+    python-telegram-bot-13.7   |     pyhd8ed1ab_0         264 KB  conda-forge
+    python-tzdata-2021.4       |     pyhd8ed1ab_0         151 KB  conda-forge
+    pytz-deprecation-shim-0.1.0.post0|   py38haa244fe_0          22 KB  conda-
+forge
+    tzdata-2021d               |       he74cb21_0         121 KB  conda-forge
+    tzlocal-4.0.1              |   py38haa244fe_0          30 KB  conda-forge
+    ujson-4.2.0                |   py38h885f38d_0          49 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         781 KB
+
+The following NEW packages will be INSTALLED:
+
+  apscheduler        conda-forge/win-64::apscheduler-3.6.3-py38haa244fe_3
+  backports.zoneinfo conda-forge/win-64::backports.zoneinfo-0.2.1-py38h294d835
+_4
+  cachetools         conda-forge/noarch::cachetools-4.2.2-pyhd8ed1ab_0
+  python-telegram-b~ conda-forge/noarch::python-telegram-bot-13.7-pyhd8ed1ab_0
+
+  python-tzdata      conda-forge/noarch::python-tzdata-2021.4-pyhd8ed1ab_0
+  pytz-deprecation-~ conda-forge/win-64::pytz-deprecation-shim-0.1.0.post0-py3
+8haa244fe_0
+  tzdata             conda-forge/noarch::tzdata-2021d-he74cb21_0
+  tzlocal            conda-forge/win-64::tzlocal-4.0.1-py38haa244fe_0
+  ujson              conda-forge/win-64::ujson-4.2.0-py38h885f38d_0
+
+The following packages will be UPDATED:
+
+  ca-certificates    anaconda::ca-certificates-2020.10.14-0 --> conda-forge::c
+a-certificates-2021.10.8-h5b45459_0
+  certifi                anaconda::certifi-2020.6.20-py38_0 --> conda-forge::c
+ertifi-2021.10.8-py38haa244fe_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+tzdata-2021d         | 121 KB    | ################################## | 100%
+cachetools-4.2.2     | 12 KB     | ################################## | 100%
+python-telegram-bot- | 264 KB    | ################################## | 100%
+tzlocal-4.0.1        | 30 KB     | ################################## | 100%
+apscheduler-3.6.3    | 81 KB     | ################################## | 100%
+python-tzdata-2021.4 | 151 KB    | ################################## | 100%
+pytz-deprecation-shi | 22 KB     | ################################## | 100%
+backports.zoneinfo-0 | 50 KB     | ################################## | 100%
+ujson-4.2.0          | 49 KB     | ################################## | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+PS C:\Users\jeppe\Documents\GitHub\BaselineAlogrithms> python run_config.py conf/in conf/out
+Checking conf/in
+waiting for configuration files in  conf/in
+processing config conf/in\test_csrm.yml
+error for config  conf/in\test_csrm.yml
+Traceback (most recent call last):
+  File "run_config.py", line 99, in main
+    c = yaml.load(stream)
+TypeError: load() missing 1 required positional argument: 'Loader'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run_config.py", line 919, in <module>
+    main(sys.argv[1], out=sys.argv[2] if len(sys.argv) > 2 else None)
+  File "run_config.py", line 118, in main
+    os.rename(list[0], out + '/' + file.name + str(time.time()) + '.error')
+PermissionError: [WinError 32] The process cannot access the file because it i
+s being used by another process: 'conf/in\\test_csrm.yml' -> 'conf/out/test_cs
+rm.yml1634732111.8563023.error'
+PS C:\Users\jeppe\Documents\GitHub\BaselineAlogrithms> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20211020141608
+**********************
