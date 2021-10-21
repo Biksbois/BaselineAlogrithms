@@ -202,6 +202,7 @@ def load_data_session_hdf(path, file, sessions_train=None, sessions_test=None, s
     # test = pd.read_csv(path + file + test_appendix + split + '.txt', sep='\t', dtype={'ItemId': np.int64})
 
     sessions_path = os.path.join(path, file + split + '.hdf')
+    print("++++++++++++++"+sessions_path)
     train = pd.read_hdf(sessions_path, train_key)
     test = pd.read_hdf(sessions_path, test_key)
 

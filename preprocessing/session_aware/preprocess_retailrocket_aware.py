@@ -85,6 +85,7 @@ def split_data_slice(data, output_file, slice_id, days_offset, days_shift, min_s
     data = filter_data(data)
 
     # training-test split
+    print(output_file)
     split_data(data, output_file, min_session_length, slice_id)
 
 
@@ -155,7 +156,8 @@ def split_data(data, output_file, min_session_length, slice_id= None): #TODO: ex
     if slice_id is not None:
         output_file = output_file + "." + str(slice_id)
     output_file = output_file + FILE_TYPE_PREFIX
-    subprocess.call(['mkdir', '-p', 'prepared'])
+    print("++++++++++++++++++++++++"+output_file)
+    #subprocess.call(['mkdir', '-p', 'prepared'])
     train_full_sessions.to_hdf(output_file, 'train')
     test_sessions.to_hdf(output_file, 'test')
     train_valid_sessions.to_hdf(output_file, 'valid_train')
