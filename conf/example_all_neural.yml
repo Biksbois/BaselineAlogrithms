@@ -45,6 +45,12 @@ algorithms:
 #- class: knn.stan.STAN
 #  params: { k: 1500, sample_size: 2500, lambda_spw: 0.905 , lambda_snh: 100, lambda_inh: 0.4525 }
 #  key: stan
+
+#POP micht need feedling
+-class: baselines.pop.Pop
+  params: {top_n: 10}
+  key: pop
+
 # iknn migct need som fiddeling
 #IKNN
 - class: knn.iknn.ItemKNN
