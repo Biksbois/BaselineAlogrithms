@@ -46,16 +46,6 @@ algorithms:
 #  params: { k: 1500, sample_size: 2500, lambda_spw: 0.905 , lambda_snh: 100, lambda_inh: 0.4525 }
 #  key: stan
 
-#POP micht need feedling
--class: baselines.pop.Pop
-  params: {top_n: 10}
-  key: pop
-
-# iknn migct need som fiddeling
-#IKNN
-- class: knn.iknn.ItemKNN
-  params: { }
-  key: iknn
 #- class: knn.vstan.VSKNN_STAN
 #  params: {k: 200, sample_size: 5000 , similarity: 'vec', lambda_spw: 1.81, lambda_snh: 40, lambda_inh: 0.905, lambda_ipw: 0.905, lambda_idf: False }
 #  key: vstan
@@ -116,3 +106,13 @@ algorithms:
 #- class: shan.shan.SHAN
 #  params: { iter: 100, global_dimension: 100, lambda_uv: 0.01, lambda_a: 1 }
 #  key: shan
+#POP micht need feedling
+#-class: baselines.pop.Pop
+#  params: {top_n: 10}
+#  key: pop
+
+# iknn migct need som fiddeling
+#IKNN
+- class: knn.iknn.ItemKNN
+  params: { }
+  key: iknn
