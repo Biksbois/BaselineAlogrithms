@@ -196,6 +196,7 @@ def run_single(conf, slice=None):
                 train, test = dl.load_data_session_hdf(conf['data']['folder'], conf['data']['prefix'], slice_num=slice,
                                                        **conf['data']['opts'])
             else:
+                print("--------------"+conf['data']['folder']+ conf['data']['prefix'])
                 train, test = dl.load_data_session_hdf(conf['data']['folder'], conf['data']['prefix'], slice_num=slice)
         # elif conf['data']['type'] == 'csv': # csv file
     else:  # csv file (default)

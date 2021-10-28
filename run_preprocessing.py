@@ -73,6 +73,7 @@ def run_file( conf ):
 
     ensure_dir( conf['output']['folder'] + conf['data']['prefix'] )
     #call method according to config
+    print("++++++++++++++"+conf['output']['folder'] + conf['data']['prefix'])
     if conf['type'] == 'single':
         preprocessor.split_data( data, conf['output']['folder'] + conf['data']['prefix'], **conf['params']  )
     elif conf['type'] == 'window':
