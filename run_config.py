@@ -189,27 +189,33 @@ def run_single(conf, slice=None):
 
     buys = pd.DataFrame()
 
+    # print(conf['data']['type'])
+    # print(conf['data']['folder'])
+    # print(conf['data'])
     if 'type' in conf['data']:
+        print(6)
         if conf['data']['type'] == 'hdf':  # hdf5 file
             if 'opts' in conf['data']:
+                print(1)
                 # ( path, file, sessions_train=None, sessions_test=None, slice_num=None, train_eval=False )
                 train, test = dl.load_data_session_hdf(conf['data']['folder'], conf['data']['prefix'], slice_num=slice,
                                                        **conf['data']['opts'])
             else:
-                print("--------------"+conf['data']['folder']+ conf['data']['prefix'])
+                print(2)
                 train, test = dl.load_data_session_hdf(conf['data']['folder'], conf['data']['prefix'], slice_num=slice)
         # elif conf['data']['type'] == 'csv': # csv file
     else:  # csv file (default)
         if 'opts' in conf['data']:
+            print(5)
             train, test = dl.load_data_session(conf['data']['folder'], conf['data']['prefix'], slice_num=slice,
                                                **conf['data']['opts'])
         else:
+            print(4)
             train, test = dl.load_data_session(conf['data']['folder'], conf['data']['prefix'], slice_num=slice)
         if 'buys' in conf['data'] and 'file_buys' in conf['data']:
             buys = dl.load_buys(conf['data']['folder'], conf['data']['file_buys'])  # load buy actions in addition
     # else:
     #     raise RuntimeError('Unknown data type: {}'.format(conf['data']['type']))
-
     for m in metrics:
         m.init(train)
         if hasattr(m, 'set_buys'):
