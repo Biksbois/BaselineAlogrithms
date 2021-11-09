@@ -469,9 +469,22 @@ def run_bayopt(conf):
             global_results[key] = value
 
     write_results_csv(global_results, conf)
+    
+def createFolderWithParents(path):
+    if not os.path.exists(path):
+        os.system('mkdir -p ' + path)
 
+#append string in file if the file exsists if not create it
+def AppendStringToTextFile(path,string):
+    if os.path.exists(path):
+        with open(path, 'a') as f:
+            f.write(" "+string)
+    else:
+        with open(path, 'w') as f:
+            f.write(string)
 
 def eval_algorithm(train, test, key, algorithm, eval, metrics, results, conf, slice=None, iteration=None, out=True):
+    print(algorithm.__class__.__name__)
     '''
     Evaluate one single algorithm
         --------
@@ -495,6 +508,7 @@ def eval_algorithm(train, test, key, algorithm, eval, metrics, results, conf, sl
             Optional index for the window slice
     '''
     ts = time.time()
+    print((time.time() - ts))
     print('fit ', key)
     # send_message( 'training algorithm ' + key )
 
@@ -505,9 +519,12 @@ def eval_algorithm(train, test, key, algorithm, eval, metrics, results, conf, sl
         if hasattr(m, 'start'):
             m.start(algorithm)
 
+    createFolderWithParents("results\\"+algorithm.__class__.__name__)
+    print("Creates Path for the time.txt")
     algorithm.fit(train, test)
     print(key, ' time: ', (time.time() - ts))
-
+    print("Appends the new time to the epochs in time.txt")
+    AppendStringToTextFile("results\\"+algorithm.__class__.__name__+"\\time.txt", str(time.time() - ts))
     if 'results' in conf and 'pickle_models' in conf['results']:
         try:
             save_model(key, algorithm, conf)
