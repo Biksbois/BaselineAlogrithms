@@ -78,7 +78,7 @@ class MultiVAE(MultiDAE):
     def forward_pass(self):
         # q-network
         mu_q, std_q, KL = self.q_graph()
-        epsilon = tf.random_normal(tf.shape(std_q))
+        epsilon = tf.random.normal(tf.shape(std_q))
 
         sampled_z = mu_q + self.is_training_ph *\
             epsilon * std_q

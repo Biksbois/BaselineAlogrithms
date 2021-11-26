@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import time
 
 
@@ -34,7 +35,7 @@ class NN(object):
             self.lr = self.update_lr()
         else:
             self.lr = tf.Variable(self.init_lr, trainable=False)
-        self.optimizer = tf.train.AdamOptimizer(self.lr)
+        self.optimizer = tf.compat.v1.train.AdamOptimizer(self.lr)
         grads_and_vars = self.optimizer.compute_gradients(loss, params)
         if self.max_grad_norm != None:
             clipped_grads_and_vars = [

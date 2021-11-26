@@ -1,7 +1,8 @@
 # coding=utf-8
 import numpy as np
 import pandas as pd
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import time
 from algorithms.STAMP.basic_layer.NN_adam import NN
 from algorithms.STAMP.util.Printer import TIPrint
@@ -307,13 +308,13 @@ class Seq2SeqAttNN(NN):
         build the MemNN model
         '''
         # the input.
-        self.inputs = tf.placeholder(
+        self.inputs = tf.compat.v1.placeholder(
             tf.int32,
             [None, None],
             name="inputs"
         )
 
-        self.last_inputs = tf.placeholder(
+        self.last_inputs = tf.compat.v1.placeholder(
             tf.int32,
             [None],
             name="last_inputs"
@@ -321,13 +322,13 @@ class Seq2SeqAttNN(NN):
 
         batch_size = tf.shape(self.inputs)[0]
 
-        self.sequence_length = tf.placeholder(
+        self.sequence_length = tf.compat.v1.placeholder(
             tf.int64,
             [None],
             name='sequence_length'
         )
 
-        self.lab_input = tf.placeholder(
+        self.lab_input = tf.compat.v1.placeholder(
             tf.int32,
             [None],
             name="lab_input"
@@ -373,12 +374,12 @@ class Seq2SeqAttNN(NN):
         self.alph = tf.reshape(alph, [batch_size, 1, -1])
 
         self.w1 = tf.Variable(
-            tf.random_normal([self.edim, self.edim], stddev=self.stddev),
+            tf.random.normal([self.edim, self.edim], stddev=self.stddev),
             trainable=True
         )
 
         self.w2 = tf.Variable(
-            tf.random_normal([self.edim, self.edim], stddev=self.stddev),
+            tf.random.normal([self.edim, self.edim], stddev=self.stddev),
             trainable=True
         )
         attout = tf.tanh(tf.matmul(attout, self.w1))
