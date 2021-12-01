@@ -146,32 +146,32 @@ class NARM:
                 start_time = time.time()
                 n_samples = 0
                 epoch_loss = []
-    
                 # Get new shuffled index for the training set.
                 kf = self.get_minibatches_idx(len(train[0]), batch_size, shuffle=True)
                 kf_valid = self.get_minibatches_idx(len(valid[0]), valid_batch_size, shuffle=True)
-    
+
                 for _, train_index in kf:
                     uidx += 1
                     use_noise.set_value(1.)
-    
+                    print(1)
                     # Select the random examples for this minibatch
                     y = [train[1][t] for t in train_index]
                     x = [train[0][t]for t in train_index]
-    
+                    print(2)
                     # Get the data in numpy.ndarray format
                     # This swap the axis!
                     # Return something of shape (minibatch maxlen, n samples)
                     x, mask, y = prepare_data(x, y)
                     n_samples += x.shape[1]
-    
+                    print(3)
                     loss = train_function(x, mask, y)
+                    print(loss)
                     epoch_loss.append(loss)
-    
+                    print(4)
                     if np.isnan(loss) or np.isinf(loss):
                         print('bad loss detected: ', loss)
                         return 1., 1., 1.
-    
+                    print(5)
                     if np.mod(uidx, dispFreq) == 0:
                         print('Epoch ', eidx, 'Update ', uidx, 'Loss ', np.mean(epoch_loss))
     

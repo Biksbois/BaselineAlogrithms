@@ -22,7 +22,7 @@ class LinearLayer_3dim():
         '''
         the initialize function.
         w_shape is the shape of the w param. if params is None, need. 
-        staddev is the stddev of the tf.random_normal. if params is None, need. 
+        staddev is the stddev of the tf.random.normal. if params is None, need. 
         params = {'wline':wline}, is use to assign the params.
         active is the active function.  
         '''

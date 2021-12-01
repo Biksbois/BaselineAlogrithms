@@ -244,7 +244,7 @@ class shan():
         self.lamada_a = lambda_a
 
         self.current_session_test = -1
-        self.initializer = tf.random_normal_initializer(mean=0, stddev=0.01)
+        self.initializer = tf.random.normal_initializer(mean=0, stddev=0.01)
         self.initializer_param = tf.random_uniform_initializer(minval=-np.sqrt(3 / self.global_dimension),
                                                                maxval=np.sqrt(3 / self.global_dimension))
 

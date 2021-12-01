@@ -146,7 +146,7 @@ class CSRM:
 
     def init_weights(self, i_name, shape):
         sigma = np.sqrt(2. / shape[0])
-        return tf.get_variable(name=i_name, dtype=tf.float32, initializer=tf.random_normal(shape) * sigma)
+        return tf.get_variable(name=i_name, dtype=tf.float32, initializer=tf.random.normal(shape) * sigma)
 
     def init_params(self):
         """
