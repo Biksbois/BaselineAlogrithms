@@ -1,17 +1,13 @@
-type: single # single|window|opt
+type: window # single|window|opt
 key: baselines_and_models #added to the csv names
 evaluation: evaluation_user_based # evaluation_user_based
 data:
-  #name: rsc15-100k #added in the end of the csv names
-  #folder: data/rsc15/prepared/
-  #prefix: yoochoose-clicks-100k
   name: diginetica #added in the end of the csv names
   folder: data/diginetica/prepared/
   prefix: train-item-views
-
-  #type: # hdf|csv(default)
-  #slices: 5 #only window
-  #skip: [0,3] #only window
+  type: csv # hdf|csv(default)
+  slices: 5 #only window
+  skip: [0,3] #only window
 
 results:
   folder: results/session-based/diginetica/
@@ -88,9 +84,9 @@ algorithms:
 #  params: { learning_rate: 0.005, iterations: 30, is_negsample: True }
 #  key: nextitnet
 #SR-gnn
-# - class: sgnn.gnn.GGNN
-#   params: { hidden_size: 100, out_size: 100, step: 1, nonhybrid: True, batch_size: 100, epoch_n: 10, batch_predict: True, lr: 0.006, l2: 3.00E-05, lr_dc: 0.36666667, lr_dc_step: 3}
-#   key: sgnn
+- class: sgnn.gnn.GGNN
+  params: { hidden_size: 100, out_size: 100, step: 1, nonhybrid: True, batch_size: 100, epoch_n: 10, batch_predict: True, lr: 0.006, l2: 3.00E-05, lr_dc: 0.36666667, lr_dc_step: 3}
+  key: sgnn
 #- class: CSRM.csrm.CSRM
 #  params: { hidden_units: 100, epoch: 10, lr: 0.001, memory_size: 128}
 #  key: csrm

@@ -106,16 +106,11 @@ venv.bak/
 .pydevproject
 /.settings/
 /results/
-/data/**/*.txt
-/data/**/*.csv
-/data/**/*.dat
 .idea/misc.xml
 .idea/modules.xml
 .idea/session-rec.iml
 .idea/vcs.xml
 .idea/workspace.xml
-conf/in/*
-conf/out/*
 
 .idea
 /data/

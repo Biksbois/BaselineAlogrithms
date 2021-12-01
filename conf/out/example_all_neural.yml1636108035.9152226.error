@@ -88,9 +88,9 @@ algorithms:
 #  params: { learning_rate: 0.005, iterations: 30, is_negsample: True }
 #  key: nextitnet
 #SR-gnn
-# - class: sgnn.gnn.GGNN
-#   params: { hidden_size: 100, out_size: 100, step: 1, nonhybrid: True, batch_size: 100, epoch_n: 10, batch_predict: True, lr: 0.006, l2: 3.00E-05, lr_dc: 0.36666667, lr_dc_step: 3}
-#   key: sgnn
+- class: sgnn.gnn.GGNN
+  params: { hidden_size: 100, out_size: 100, step: 1, nonhybrid: True, batch_size: 100, epoch_n: 10, batch_predict: True, lr: 0.006, l2: 3.00E-05, lr_dc: 0.36666667, lr_dc_step: 3}
+  key: sgnn
 #- class: CSRM.csrm.CSRM
 #  params: { hidden_units: 100, epoch: 10, lr: 0.001, memory_size: 128}
 #  key: csrm
